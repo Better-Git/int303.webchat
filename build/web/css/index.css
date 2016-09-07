@@ -19,13 +19,13 @@ ul {
 #card {
     margin: 0 auto;
     margin-top: 8vh;
-    width: max-content;
+    width: fit-content;
 }
 #card-border {
-    height: 5.75rem;
+    height: 80px;
 }
-#card-title {
-    margin: 0 auto;
+#card-form {
+    display: inline-block;
 }
 #card-text1, #card-text2 {
     color: gray;
@@ -38,13 +38,17 @@ ul {
     margin-left: 2.75px; 
     margin-top: 25px
 }
+#card-title {
+    margin: 0 auto;
+}
 #close {
-    position: relative;
-    top: 3px;
+    left: 23.2em;
+    position: absolute;
+    top: 23px;
 }
 #help {
     cursor: pointer;
-    cursor: hand;
+    float: left;
     margin-top: -0.1em;
 }
 #icon, #input {
@@ -62,6 +66,10 @@ ul {
 #input {
     top: -22px;
 }
+#join {
+    float: left;
+    right: 18px;
+}
 #launch {
     bottom: 8px;
     right: 16px;
@@ -69,57 +77,66 @@ ul {
 #spc {
     margin-left: 2px;
 }
-@media only screen and (max-width: 320px) {
-    #card-content {
-        height: 31rem;
-    }
+
+/* Media queries for each type of devices */
+
+/* -- Google Chrome (Latest) > Desktop > Windows 10 -- */
+/* Full screen, maximized screen and any screen larger than 716x775 px 
+will not use these queries. */
+
+/* Snap 1/2 */
+@media only screen and (min-height: 775px) and (max-height: 775px) and (min-width: 716px) and (max-width: 716px) {
     #close {
-        right: -12px;
+        left: 20em;
     }
 }
-@media only screen and (min-width: 325px) and (max-width: 360px) {
-    #card-content {
-        height: 29rem;
-    }
+
+/* Snap 1/4 */
+@media only screen and (min-height: 345px) and (max-height: 345px) and (min-width: 716px) and (max-width: 716px) {
     #close {
-        right: -3.25rem;
-    }
-    #join {
-        left: 17px;
+        left: 20.1em;
     }
 }
-@media only screen and (min-width: 365px) and (max-width: 375px) {
-    #card-content {
-        height: 27rem;
-    }
+
+/* -- Google Chrome (Latest) > Mobile -- */
+
+/* iPad (Portrait) */
+@media only screen and (min-height: 1024px) and (max-height: 1024px) and (min-width: 768px) and (max-width: 768px) {
     #close {
-        right: -4.1rem;
-    }
-    #join {
-        left: 19px;
+        left: 20.75em;
     }
 }
-@media only screen and (min-width: 380px) and (max-width: 415px) {
-    #card-content {
-        height: 27rem;
-    }
-    #close {
-        right: -6.5rem;
-    }
-    #join {
-        left: 41px;
-    }
-}
-@media only screen and (max-width: 515px) {
-    #card {
-        width: fit-content;
-    }
+
+/* iPhone 6 Plus (Portrait) */
+@media only screen and (min-height: 736px) and (max-height: 736px) and (min-width: 414px) and (max-width: 414px) {
     #card-border {
-        height: 16rem;
+        height: 9.5em;
     }
-    #join {
-        margin-bottom: 2.3rem;
-        margin-left: 6.75rem;
+    #card-content {
+        height: 23.5em;
+    }
+    #close {
+        left: 13.05em;
+    }
+}
+
+/* iPhone 6 Plus (Landscape) */
+@media only screen and (min-height: 414px) and (max-height: 414px) and (min-width: 736px) and (max-width: 736px) {
+    #close {
+        left: 20.45em;
+    }
+}
+
+/* iPhone 6 (Portrait) */
+@media only screen and (min-height: 667px) and (max-height: 667px) and (min-width: 375px) and (max-width: 375px) {
+    #card-border {
+        height: 10.4em;
+    }
+    #card-content {
+        height: 23.5em;
+    }
+    #close {
+        left: 11.55em;
     }
     #line-break {
         display: block;
@@ -129,72 +146,169 @@ ul {
         white-space: pre;
     }
 }
-@media only screen and (min-width: 550px) {
+
+/* iPhone 6 (Landscape) */
+@media only screen and (min-height: 375px) and (max-height: 375px) and (min-width: 667px) and (max-width: 667px) {
     #close {
-        right: -23.5rem;
-    }
-    #join {
-        margin-bottom: 2.3rem;
-        margin-left: 11.75rem;
+        left: 19.7em;
     }
 }
-@media only screen and (min-width: 725px) {
-    #close {
-        right: -23.85rem;
+
+/* iPhone 5 (Portrait) */
+@media only screen and (min-height: 568px) and (max-height: 568px) and (min-width: 320px) and (max-width: 320px) {
+    #card-border {
+        height: 14.4em;
     }
-}
-@media only screen and (max-height: 412px) {
-    #card {
-        width: fit-content;
-    }
-    #close {
-        right: -18rem;
-    }
-    #join {
-        left: 85px;
-        margin-left: 0;
-    }
-}
-@media only screen and (min-width: 568px) and (max-height: 320px) {
     #card-content {
-        height: 23rem;
+        height: 27em;
     }
     #close {
-        right: -15.65rem;
+        left: 9.5em;
     }
-    #join {
-        left: 48px;
+    #line-break {
+        display: block;
+    }
+    #line-break:after {
+        content: "\A";
+        white-space: pre;
     }
 }
-@media only screen and (min-width: 640px) and (max-height: 360px) {
+
+/* iPhone 5 (Landscape) */
+@media only screen and (min-height: 320px) and (max-height: 320px) and (min-width: 568px) and (max-width: 568px) {
+    #card-content {
+        height: 20em;
+    }
     #close {
-        right: -17.35rem;
-    }
-    #join {
-        left: 70px;
+        left: 18.35em;
     }
 }
-@media only screen and (min-width: 667px) and (max-height: 375px) {
+
+/* Nexus 6P (Portrait) */
+@media only screen and (min-height: 732px) and (max-height: 732px) and (min-width: 412px) and (max-width: 412px) {
+    #card-border {
+        height: 10.4em;
+    }
+    #card-content {
+        height: 23.5em;
+    }
     #close {
-        right: -18rem;
+        left: 12.9em;
     }
-    #join {
-        left: 80px;
+    #line-break {
+        display: block;
+    }
+    #line-break:after {
+        content: "\A";
+        white-space: pre;
     }
 }
-@media only screen and (min-width: 716px) and (max-height: 344px) {
+
+/* Nexus 6P (Landscape) */
+@media only screen and (min-height: 412px) and (max-height: 412px) and (min-width: 732px) and (max-width: 732px) {
     #close {
-        right: -18.65rem;
-    }
-    #join {
-        left: 88px;
+        left: 20.45em;
     }
 }
-@media only screen and (min-width: 736px) and (max-height: 414px) {
+
+/* Nexus 5X (Portrait - Default, Navigation bar) */
+@media only screen and (min-height: 600px) and (max-height: 740px) and (min-width: 380px) and (max-width: 420px) {
+    #card-border {
+        height: 10.4em;
+    }
+    #card-content {
+        height: 23.5em;
+    }
     #close {
-        right: -23.75rem;
+        left: 12.9em;
+    }
+    #line-break {
+        display: block;
+    }
+    #line-break:after {
+        content: "\A";
+        white-space: pre;
     }
 }
+
+/* Nexus 5X (Portrait - Keyboard) */
+@media only screen and (min-height: 280px) and (max-height: 320px) and (min-width: 380px) and (max-width: 420px) {
+    #card-border {
+        height: 10.4em;
+    }
+    #card-content {
+        height: 23.5em;
+    }
+    #close {
+        left: 12.9em;
+    }
+    #line-break {
+        display: block;
+    }
+    #line-break:after {
+        content: "\A";
+        white-space: pre;
+    }
+}
+
+/* Nexus 5X (Landscape - Default, Navigation bar) */
+@media only screen and (min-height: 320px) and (max-height: 420px) and (min-width: 600px) and (max-width: 740px) {
+    #close {
+        left: 19.7em;
+    }
+}
+
+/* Nexus 5X (Landscape - Keyboard) */
+@media only screen and (min-height: 100px) and (max-height: 140px) and (min-width: 600px) and (max-width: 740px) {
+    #close {
+        left: 19.7em;
+    }
+}
+
+/* Galaxy S5 (Portrait) */
+@media only screen and (min-height: 640px) and (max-height: 640px) and (min-width: 360px) and (max-width: 360px) {
+    #card-border {
+        height: 10.4em;
+    }
+    #card-content {
+        height: 25em;
+    }
+    #close {
+        left: 11em;
+    }
+    #line-break {
+        display: block;
+    }
+    #line-break:after {
+        content: "\A";
+        white-space: pre;
+    }
+}
+
+/* Galaxy S5 (Landscape) */
+@media only screen and (min-height: 360px) and (max-height: 360px) and (min-width: 640px) and (max-width: 640px) {
+    #close {
+        left: 19.35em;
+    }
+}
+
+/* -- Microsoft Internet Explorer 10+, Microsoft Edge (Latest) > Desktop -- */
+_:-ms-lang(x),
+#card {
+    width: auto;
+}
+#card-title {
+    text-align: center;
+}
+#content {
+    min-height: calc(100vh - 77px);
+}
+#icon {
+    float: left;
+    top: 1px;
+}
+
+/* Home page slideshow */
 .slideshow, .slideshow:after { 
     position: fixed;
     width: 100%;
@@ -264,9 +378,6 @@ ul {
     -o-animation-delay: 30s;
     -ms-animation-delay: 30s;
     animation-delay: 30s;
-}
-.ie7 body{
-    overflow: hidden;
 }
 .no-cssanimations .slideshow li span{
     opacity: 1;
