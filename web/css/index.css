@@ -1,0 +1,318 @@
+body {
+    background: #4d4d4d;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-weight: 400;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+main {
+    flex: 1 0 auto;
+}
+ul { 
+    margin: 0;
+}
+#card {
+    margin: 0 auto;
+    margin-top: 8vh;
+    width: max-content;
+}
+#card-border {
+    height: 5.75rem;
+}
+#card-title {
+    margin: 0 auto;
+}
+#card-text1, #card-text2 {
+    color: gray;
+}
+#card-text1 {
+    text-align: center;
+}
+#card-text2 {
+    font-size: 20px; 
+    margin-left: 2.75px; 
+    margin-top: 25px
+}
+#close {
+    position: relative;
+    top: 3px;
+}
+#help {
+    cursor: pointer;
+    cursor: hand;
+    margin-top: -0.1em;
+}
+#icon, #input {
+    position: relative;
+    margin-right: 10px;
+    top: -17px;
+}
+#index-logo {
+    display: block;
+    height: 125px;
+    margin: auto;
+    margin-bottom: 10px;
+    width: auto;
+}
+#input {
+    top: -22px;
+}
+#launch {
+    bottom: 8px;
+    right: 16px;
+}
+#spc {
+    margin-left: 2px;
+}
+@media only screen and (max-width: 320px) {
+    #card-content {
+        height: 31rem;
+    }
+    #close {
+        right: -12px;
+    }
+}
+@media only screen and (min-width: 325px) and (max-width: 360px) {
+    #card-content {
+        height: 29rem;
+    }
+    #close {
+        right: -3.25rem;
+    }
+    #join {
+        left: 17px;
+    }
+}
+@media only screen and (min-width: 365px) and (max-width: 375px) {
+    #card-content {
+        height: 27rem;
+    }
+    #close {
+        right: -4.1rem;
+    }
+    #join {
+        left: 19px;
+    }
+}
+@media only screen and (min-width: 380px) and (max-width: 415px) {
+    #card-content {
+        height: 27rem;
+    }
+    #close {
+        right: -6.5rem;
+    }
+    #join {
+        left: 41px;
+    }
+}
+@media only screen and (max-width: 515px) {
+    #card {
+        width: fit-content;
+    }
+    #card-border {
+        height: 16rem;
+    }
+    #join {
+        margin-bottom: 2.3rem;
+        margin-left: 6.75rem;
+    }
+    #line-break {
+        display: block;
+    }
+    #line-break:after {
+        content: "\A";
+        white-space: pre;
+    }
+}
+@media only screen and (min-width: 550px) {
+    #close {
+        right: -23.5rem;
+    }
+    #join {
+        margin-bottom: 2.3rem;
+        margin-left: 11.75rem;
+    }
+}
+@media only screen and (min-width: 725px) {
+    #close {
+        right: -23.85rem;
+    }
+}
+@media only screen and (max-height: 412px) {
+    #card {
+        width: fit-content;
+    }
+    #close {
+        right: -18rem;
+    }
+    #join {
+        left: 85px;
+        margin-left: 0;
+    }
+}
+@media only screen and (min-width: 568px) and (max-height: 320px) {
+    #card-content {
+        height: 23rem;
+    }
+    #close {
+        right: -15.65rem;
+    }
+    #join {
+        left: 48px;
+    }
+}
+@media only screen and (min-width: 640px) and (max-height: 360px) {
+    #close {
+        right: -17.35rem;
+    }
+    #join {
+        left: 70px;
+    }
+}
+@media only screen and (min-width: 667px) and (max-height: 375px) {
+    #close {
+        right: -18rem;
+    }
+    #join {
+        left: 80px;
+    }
+}
+@media only screen and (min-width: 716px) and (max-height: 344px) {
+    #close {
+        right: -18.65rem;
+    }
+    #join {
+        left: 88px;
+    }
+}
+@media only screen and (min-width: 736px) and (max-height: 414px) {
+    #close {
+        right: -23.75rem;
+    }
+}
+.slideshow, .slideshow:after { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0; 
+}
+.slideshow li span { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 36s linear infinite 0s;
+    -moz-animation: imageAnimation 36s linear infinite 0s;
+    -o-animation: imageAnimation 36s linear infinite 0s;
+    -ms-animation: imageAnimation 36s linear infinite 0s;
+    animation: imageAnimation 36s linear infinite 0s; 
+}
+.slideshow li:nth-child(1) span { 
+    background-image: url(http://www.androidbeat.com/wp-content/uploads/2016/08/08-ruA6Get.jpg);
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url(http://i.imgur.com/2rjgq.jpg);
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url(https://allsizewallpapers.files.wordpress.com/2012/05/boat_sailing_in_the_blue_sea_wallpaper-1920x1200.jpg);
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s; 
+}
+.slideshow li:nth-child(4) span { 
+    background-image: url(https://i.ytimg.com/vi/uT6GPFPnV-I/maxresdefault.jpg);
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s; 
+}
+.slideshow li:nth-child(5) span { 
+    background-image: url(http://toasterdog.com/files/RollingWaves.jpg);
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s; 
+}
+.slideshow li:nth-child(6) span { 
+    background-image: url(https://i.ytimg.com/vi/KQdVzgNRFis/maxresdefault.jpg);
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s;
+}
+.ie7 body{
+    overflow: hidden;
+}
+.no-cssanimations .slideshow li span{
+    opacity: 1;
+}
+@-webkit-keyframes imageAnimation { 
+    0% { opacity: 0;
+         -webkit-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -webkit-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation { 
+    0% { opacity: 0;
+         -moz-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -moz-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation { 
+    0% { opacity: 0;
+         -o-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -o-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation { 
+    0% { opacity: 0;
+         -ms-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -ms-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes imageAnimation { 
+    0% { opacity: 0;
+         animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
