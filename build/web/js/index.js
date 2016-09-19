@@ -1,6 +1,20 @@
 document.documentElement.setAttribute('data-platform', navigator.platform);
 document.documentElement.setAttribute('data-useragent', navigator.userAgent);
 
+$(function () {
+    if ($(window).width() <= 280) {
+        $('#close').hide();
+    }
+});
+
+$(window).resize(function () {
+    if ($(window).width() <= 280) {
+        $('#close').hide();
+    } else {
+        $('#close').show();
+    }
+});
+
 ko.bindingHandlers.mkPassword = {
     init: function (element, valueAccessor, allBindingsAccessor, data, context) {
         var $input = $(element),
@@ -32,7 +46,7 @@ ko.bindingHandlers.mkPassword = {
             return params.value;
         }, allBindingsAccessor, data, context);
         $(element).parent()[value ? 'addClass' : 'removeClass']('is-dirty');
-        
+
     }
 };
 

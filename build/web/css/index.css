@@ -185,6 +185,18 @@ ul {
     }
 }
 
+@media (width: 480px) and (height: 480px) {
+    #card-content {
+        height: 23.5em;
+    }
+}
+
+@media (max-width: 280px) {
+    #card-content {
+        height: 36.5em;
+    }
+}
+
 /* Home page slideshow */
 .slideshow, .slideshow:after { 
     position: fixed;
