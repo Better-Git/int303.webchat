@@ -140,7 +140,7 @@ ul {
     }
 }
 
-/* -- Microsoft Internet Explorer 10+, Microsoft Edge > Desktop -- */
+/* -- Microsoft Internet Explorer 10+, Microsoft Edge -- */
 @media only screen\0 {
     #content {
         min-height: calc(100vh - 77px);
