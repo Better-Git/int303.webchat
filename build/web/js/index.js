@@ -25,6 +25,7 @@ ko.bindingHandlers.mkPassword = {
         $input.attr('disabled', true);
         $input.attr('id', id);
         $input.attr('minlength', "3");
+        $input.attr('name', id);
         $input.attr('pattern', ".{3,}");
         $input.attr('title', "Please use any characters at least 3 letters for a password.");
         $input.attr('type', "password");
