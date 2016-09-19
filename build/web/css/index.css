@@ -19,10 +19,6 @@ ul {
 #card {
     margin: 0 auto;
     margin-top: 8vh;
-    width: 615px;
-}
-#card-border {
-    height: 80px;
 }
 #card-form {
     display: inline-block;
@@ -30,7 +26,7 @@ ul {
 #card-text1, #card-text2, #card-text3 {
     color: gray;
 }
-#card-text1 {
+#card-text1, #card-title {
     text-align: center;
 }
 #card-text2 {
@@ -45,10 +41,8 @@ ul {
 }
 #card-title {
     margin: 0 auto;
-    text-align: center;
 }
 #close {
-    left: 23.2em;
     position: absolute;
     top: 23px;
 }
@@ -57,10 +51,18 @@ ul {
     float: left;
     margin-top: -0.1em;
 }
-#icon, #input {
+#icon, #icon-button, #icon-toggle, #input {
     position: relative;
     margin-right: 10px;
     top: -17px;
+}
+#icon-button {
+    height: 24px;
+    top: 0px;
+    width: 24px;
+}
+#icon-toggle {
+    top: -23px;
 }
 #index-logo {
     display: block;
@@ -80,270 +82,225 @@ ul {
     bottom: 8px;
     right: 16px;
 }
+#line-break {
+    display: block;
+    margin-bottom: -30px;
+}
+#line-break:after {
+    content: "\A";
+    white-space: pre;
+}
 #spc {
     margin-left: 2px;
 }
 
-/* Media queries for each type of devices */
+/* Media queries for landscape */
 
-/* -- Google Chrome 40+ > Desktop -- */
-/* Desktop version will dismiss these queries at any screen resolution. */
-
-/* -- Google Chrome 40+ > Mobile -- */
-
-/* Landscape */
-@media only screen and (orientation: landscape) {
-    @media only screen and (max-resolution: 2.75dppx), 
-    only screen and (min-resolution: 3dppx) and (max-height: 360px) {
-        #card {
-            width: fit-content;
-        }
-        #card-content {
-            height: 22em;
-        }
-        @media only screen and (max-height: 320px) {
-            html[data-useragent*='iPhone'] #card-content {
-                height: 23em;
-            }
-            html[data-useragent*='iPhone'] #close {
-                left: 18.35em;
-            }
-        }
-        @media only screen and (min-height: 325px) and (max-height: 360px) {
-            #close {
-                left: 19.3em;
-            }
-        }
-        @media only screen and (min-height: 365px) and (max-height: 412px) {
-            #close {
-                left: 19.7em;
-            }
-        }
-        @media only screen and (max-height: 320px) and (max-width: 720px) {
-            html[data-useragent*='Android'] #card-content {
-                height: 30em;
-            }
-            html[data-useragent*='Android'] #close {
-                left: 11em;
-            }
-        }
+@media (min-width: 711px) {
+    #card {
+        width: 615px;
     }
-    @media only screen and (max-width: 480px) and (max-height: 320px) {
-        html[data-useragent*='iPhone'] #card {
-            width: auto;
-        }
-        html[data-useragent*='iPhone'] #card-border {
-            height: 10.5em;
-        }
-        html[data-useragent*='iPhone'] #close {
-            left: 15.5em;
-        }
-        html[data-useragent*='iPhone'] #line-break {
-            display: block;
-        }
-        html[data-useragent*='iPhone'] #line-break:after {
-            content: "\A";
-            white-space: pre;
-        }
+    #card-border {
+        height: 140px;
+    }
+    #close {
+        left: 23.1em;
     }
 }
 
-/* Portrait */
-@media only screen and (orientation: portrait) {
-    @media only screen and (max-width: 450px) {
-        #card {
-            width: fit-content;
-        }
-        #card-border {
-            height: 10.5em;
-        }
-        #card-content {
-            height: 23.5em;
-        }
-        #line-break {
-            display: block;
-        }
-        #line-break:after {
-            content: "\A";
-            white-space: pre;
-        }
-        @media only screen and (max-width: 320px) {
-            #card-border {
-                height: 14.5em;
-            }
-            #card-content {
-                height: 32em;
-            }
-            #close {
-                left: 9.45em;
-            }
-        }
-        @media only screen and (min-width: 325px) and (max-width: 360px) {
-            #card-content {
-                height: 29.7em;
-            }
-            #close {
-                left: 10.9em;
-            }
-        }
-        @media only screen and (min-width: 365px) and (max-width: 450px) {
-            #card-content {
-                height: 27.8em;
-            }
-        }
-        @media only screen and (min-width: 365px) and (max-width: 412px) {
-            #close {
-                left: 11.5em;
-            }
-        }
-        @media only screen and (min-width: 412px) and (max-width: 414px) {
-            #close {
-                left: 12.9em;
-            }
-        }
-        @media only screen and (min-width: 414px) and (max-width: 450px) {
-            #close {
-                left: 13em;
-            }
-        }
+@media (max-width: 710px) {
+    #card {
+        width: auto;
     }
-    @media only screen and (max-width: 320px) and (max-height: 480px) {
-        #card {
-            width: auto;
-        }
+    #card-content {
+        height: 20.5em;
+    }
+    #close {
+        left: 9.7em;
+    }
+    #line-break-m {
+        display: block;
+        margin-bottom: -10px;
+    }
+    #line-break-m:after {
+        content: "\A";
+        white-space: pre;
     }
 }
 
-    /* -- Microsoft Internet Explorer 10+, Microsoft Edge > Desktop -- */
-    @media only screen\0 {
-        #content {
-            min-height: calc(100vh - 77px);
-        }
-        #close {
-            left: 23.1em;
-        }
-        #icon {
-            float: left;
-            top: 1px;
-        }
+@media (max-height: 400px) and (min-width: 560px) and (max-width: 700px) {
+    #card-content {
+        height: 21.7em;
     }
+}
 
-    /* Home page slideshow */
-    .slideshow, .slideshow:after { 
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0px;
-        left: 0px;
-        z-index: 0; 
+@media (max-height: 400px) and (min-width: 480px) and (max-width: 560px) {
+    #card-content {
+        height: 23.5em;
     }
-    .slideshow li span { 
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        color: transparent;
-        background-size: cover;
-        background-position: 50% 50%;
-        background-repeat: none;
-        opacity: 0;
-        z-index: 0;
-        -webkit-backface-visibility: hidden;
-        -webkit-animation: imageAnimation 36s linear infinite 0s;
-        -moz-animation: imageAnimation 36s linear infinite 0s;
-        -o-animation: imageAnimation 36s linear infinite 0s;
-        -ms-animation: imageAnimation 36s linear infinite 0s;
-        animation: imageAnimation 36s linear infinite 0s; 
+}
+
+/* -- Microsoft Internet Explorer 10+, Microsoft Edge > Desktop -- */
+@media only screen\0 {
+    #content {
+        min-height: calc(100vh - 77px);
     }
-    .slideshow li:nth-child(1) span { 
-        background-image: url(http://www.androidbeat.com/wp-content/uploads/2016/08/08-ruA6Get.jpg);
+    #icon {
+        float: left;
+        top: -2px;
     }
-    .slideshow li:nth-child(2) span { 
-        background-image: url(http://i.imgur.com/2rjgq.jpg);
-        -webkit-animation-delay: 6s;
-        -moz-animation-delay: 6s;
-        -o-animation-delay: 6s;
-        -ms-animation-delay: 6s;
-        animation-delay: 6s; 
+    #icon-toggle {
+        top: -52px;
     }
-    .slideshow li:nth-child(3) span { 
-        background-image: url(https://allsizewallpapers.files.wordpress.com/2012/05/boat_sailing_in_the_blue_sea_wallpaper-1920x1200.jpg);
-        -webkit-animation-delay: 12s;
-        -moz-animation-delay: 12s;
-        -o-animation-delay: 12s;
-        -ms-animation-delay: 12s;
-        animation-delay: 12s; 
+}
+
+/* Media queries for portrait */
+
+@media (max-width: 400px) {
+    #line-break-s {
+        display: block;
+        margin-bottom: 10px;
     }
-    .slideshow li:nth-child(4) span { 
-        background-image: url(https://i.ytimg.com/vi/uT6GPFPnV-I/maxresdefault.jpg);
-        -webkit-animation-delay: 18s;
-        -moz-animation-delay: 18s;
-        -o-animation-delay: 18s;
-        -ms-animation-delay: 18s;
-        animation-delay: 18s; 
+    #line-break-s:after {
+        content: "\A";
+        white-space: pre;
     }
-    .slideshow li:nth-child(5) span { 
-        background-image: url(http://toasterdog.com/files/RollingWaves.jpg);
-        -webkit-animation-delay: 24s;
-        -moz-animation-delay: 24s;
-        -o-animation-delay: 24s;
-        -ms-animation-delay: 24s;
-        animation-delay: 24s; 
+}
+
+@media (max-width: 420px) and (min-height: 667px) and (max-height: 740px) {
+    #card-content {
+        height: 27.5em;
     }
-    .slideshow li:nth-child(6) span { 
-        background-image: url(https://i.ytimg.com/vi/KQdVzgNRFis/maxresdefault.jpg);
-        -webkit-animation-delay: 30s;
-        -moz-animation-delay: 30s;
-        -o-animation-delay: 30s;
-        -ms-animation-delay: 30s;
-        animation-delay: 30s;
+}
+
+@media (max-width: 420px) and (min-height: 568px) and (max-height: 667px) {
+    #card-content {
+        height: 29.5em;
     }
-    .no-cssanimations .slideshow li span{
-        opacity: 1;
+}
+
+@media (max-width: 420px) and (max-height: 568px) {
+    #card-content {
+        height: 32.5em;
     }
-    @-webkit-keyframes imageAnimation { 
-        0% { opacity: 0;
-             -webkit-animation-timing-function: ease-in; }
-        8% { opacity: 1;
-             -webkit-animation-timing-function: ease-out; }
-        17% { opacity: 1 }
-        25% { opacity: 0 }
-        100% { opacity: 0 }
-    }
-    @-moz-keyframes imageAnimation { 
-        0% { opacity: 0;
-             -moz-animation-timing-function: ease-in; }
-        8% { opacity: 1;
-             -moz-animation-timing-function: ease-out; }
-        17% { opacity: 1 }
-        25% { opacity: 0 }
-        100% { opacity: 0 }
-    }
-    @-o-keyframes imageAnimation { 
-        0% { opacity: 0;
-             -o-animation-timing-function: ease-in; }
-        8% { opacity: 1;
-             -o-animation-timing-function: ease-out; }
-        17% { opacity: 1 }
-        25% { opacity: 0 }
-        100% { opacity: 0 }
-    }
-    @-ms-keyframes imageAnimation { 
-        0% { opacity: 0;
-             -ms-animation-timing-function: ease-in; }
-        8% { opacity: 1;
-             -ms-animation-timing-function: ease-out; }
-        17% { opacity: 1 }
-        25% { opacity: 0 }
-        100% { opacity: 0 }
-    }
-    @keyframes imageAnimation { 
-        0% { opacity: 0;
-             animation-timing-function: ease-in; }
-        8% { opacity: 1;
-             animation-timing-function: ease-out; }
-        17% { opacity: 1 }
-        25% { opacity: 0 }
-        100% { opacity: 0 }
-    }
+}
+
+/* Home page slideshow */
+.slideshow, .slideshow:after { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0; 
+}
+.slideshow li span { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 36s linear infinite 0s;
+    -moz-animation: imageAnimation 36s linear infinite 0s;
+    -o-animation: imageAnimation 36s linear infinite 0s;
+    -ms-animation: imageAnimation 36s linear infinite 0s;
+    animation: imageAnimation 36s linear infinite 0s; 
+}
+.slideshow li:nth-child(1) span { 
+    background-image: url(http://www.androidbeat.com/wp-content/uploads/2016/08/08-ruA6Get.jpg);
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url(http://i.imgur.com/2rjgq.jpg);
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url(https://allsizewallpapers.files.wordpress.com/2012/05/boat_sailing_in_the_blue_sea_wallpaper-1920x1200.jpg);
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s; 
+}
+.slideshow li:nth-child(4) span { 
+    background-image: url(https://i.ytimg.com/vi/uT6GPFPnV-I/maxresdefault.jpg);
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s; 
+}
+.slideshow li:nth-child(5) span { 
+    background-image: url(http://toasterdog.com/files/RollingWaves.jpg);
+    -webkit-animation-delay: 24s;
+    -moz-animation-delay: 24s;
+    -o-animation-delay: 24s;
+    -ms-animation-delay: 24s;
+    animation-delay: 24s; 
+}
+.slideshow li:nth-child(6) span { 
+    background-image: url(https://i.ytimg.com/vi/KQdVzgNRFis/maxresdefault.jpg);
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s;
+}
+.no-cssanimations .slideshow li span{
+    opacity: 1;
+}
+@-webkit-keyframes imageAnimation { 
+    0% { opacity: 0;
+         -webkit-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -webkit-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation { 
+    0% { opacity: 0;
+         -moz-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -moz-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation { 
+    0% { opacity: 0;
+         -o-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -o-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation { 
+    0% { opacity: 0;
+         -ms-animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         -ms-animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes imageAnimation { 
+    0% { opacity: 0;
+         animation-timing-function: ease-in; }
+    8% { opacity: 1;
+         animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
