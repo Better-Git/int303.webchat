@@ -51,10 +51,10 @@ ko.bindingHandlers.mkPassword = {
     }
 };
 
-var vm = new MyViewModel();
+var vm = new myViewModel();
 ko.applyBindings(vm);
 
-function MyViewModel() {
+function myViewModel() {
     var self = this;
     self.password = ko.observable('');
     self.resetForm = function () {
