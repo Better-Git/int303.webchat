@@ -18,10 +18,10 @@ $(window).resize(function () {
 ko.bindingHandlers.mkPassword = {
     init: function (element, valueAccessor, allBindingsAccessor, data, context) {
         var $input = $(element),
-            $enclosingDiv = $('<div>').insertAfter($input),
-            $label = $('<label>'),
-            $span = $('<span>'),
-            id = "password", params = valueAccessor();
+                $enclosingDiv = $('<div>').insertAfter($input),
+                $label = $('<label>'),
+                $span = $('<span>'),
+                id = "password", params = valueAccessor();
         $input.attr('disabled', true);
         $input.attr('id', id);
         $input.attr('minlength', "3");
@@ -31,8 +31,7 @@ ko.bindingHandlers.mkPassword = {
         $input.attr('type', "password");
         $label.attr('for', id).text("Password for private room");
         $span.attr('for', id).text("Password should be at least 3 letters!");
-        $enclosingDiv.attr('id', "input");
-        $enclosingDiv.attr('style', "width: 5cm");
+        $enclosingDiv.attr('id', "input-pswd");
         $input.addClass('mdl-textfield__input');
         $label.addClass('mdl-textfield__label');
         $span.addClass('mdl-textfield__error');
@@ -77,27 +76,49 @@ function mkPrivate() {
 function validate() {
     event.preventDefault();
     event.stopPropagation();
-    var x = document.forms["chatroom"]["room"].value;
-    var y = document.forms["chatroom"]["username"].value;
-    if (x === null || x === "" || x.checkValidity() === false) {
-        alert("Please enter your room code correctly.");
-        document.getElementById("room").focus();
-    }
-    $('#room').change(function (e) {
-        $('#username').focus();
-    });
-    $('#username').on("focus", function () {
-        if (y === null || y === "") {
-            alert("Please enter your name.");
-            document.getElementById("username").focus();
+    var rm = $('#room').val();
+    var un = $('#username').val();
+    var plc = $('#password').prop("disabled");
+    var pw = $('#password').val();
+    if (plc === true) {
+        if (rm === '') {
+            alert("Please enter your room number, first.\n" +
+                    "Must be at 3 to 6 letters or numbers.");
+            $('#room').focus();
+        } else if (rm !== '' && un === '') {
+            alert("Please enter your name, first.\n" +
+                    "Must be at least 1 letter or number.");
+            $('#username').focus();
+        } else if (rm !== '' && un !== '') {
+            $('#recaptcha').openModal();
+            if (grecaptcha.getResponse() !== "" && grecaptcha.getResponse().length() !== 0) {
+                $('#launch').attr('disabled', false);
+                $('#launch').click(function () {
+                    $('#chatroom').submit();
+                });
+            }
         }
-    });
-    $('#username').change(function (e) {
-        $('#join').focus();
-    });
-    if (!(x === null || x === "") && !(y === null || y === "")) {
-        $(document).ready(function () {
-            $('.modal-trigger').leanModal();
-        });
+    } else {
+        if (rm === '') {
+            alert("Please enter your room number, first.\n" +
+                    "Must be at 3 to 6 letters or numbers.");
+            $('#room').focus();
+        } else if (rm !== '' && un === '') {
+            alert("Please enter your name, first.\n" +
+                    "Must be at least 1 letter or number.");
+            $('#username').focus();
+        } else if (rm !== '' && un !== '' && pw === '') {
+            alert("Please enter your password, first.\n" +
+                    "Must be at least 3 characters.");
+            $('#password').focus();
+        } else if (rm !== '' && un !== '' && pw !== '') {
+            $('#recaptcha').openModal();
+            if (grecaptcha.getResponse() !== "" && grecaptcha.getResponse().length() !== 0) {
+                $('#launch').attr('disabled', false);
+                $('#launch').click(function () {
+                    $('#chatroom').submit();
+                });
+            }
+        }
     }
 }

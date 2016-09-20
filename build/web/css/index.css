@@ -51,10 +51,13 @@ ul {
     float: left;
     margin-top: -0.1em;
 }
-#icon, #icon-button, #icon-toggle, #input {
+#icon, #icon-button, #icon-toggle, #input, #input-pswd {
     position: relative;
     margin-right: 10px;
     top: -17px;
+}
+#input, #input-pswd {
+    top: -22px;
 }
 #icon-button {
     height: 24px;
@@ -71,8 +74,8 @@ ul {
     margin-bottom: 10px;
     width: auto;
 }
-#input {
-    top: -22px;
+#input-pswd {
+    width: 5cm;
 }
 #join {
     float: left;
@@ -105,6 +108,9 @@ ul {
     }
     #close {
         left: 23.1em;
+    }
+    #input-pswd {
+        width: 5.6cm;
     }
 }
 
@@ -140,7 +146,7 @@ ul {
     }
 }
 
-/* -- Microsoft Internet Explorer 10+, Microsoft Edge -- */
+/* -- Microsoft Internet Explorer 10+ -- */
 @media only screen\0 {
     #content {
         min-height: calc(100vh - 77px);
@@ -152,6 +158,12 @@ ul {
     #icon-toggle {
         top: -52px;
     }
+}
+
+/* -- Microsoft Edge -- */
+_:-ms-lang(x), _:-webkit-full-screen,
+#line-break { 
+    margin-bottom: -10px;
 }
 
 /* Media queries for portrait */
