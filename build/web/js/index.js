@@ -91,12 +91,12 @@ function validate() {
             $('#username').focus();
         } else if (rm !== '' && un !== '') {
             $('#recaptcha').openModal();
-            if (grecaptcha.getResponse() !== "" && grecaptcha.getResponse().length() !== 0) {
+//            if (grecaptcha.getResponse() !== "" && grecaptcha.getResponse().length() !== 0) {
                 $('#launch').attr('disabled', false);
                 $('#launch').click(function () {
                     $('#chatroom').submit();
                 });
-            }
+//            }
         }
     } else {
         if (rm === '') {
@@ -113,12 +113,12 @@ function validate() {
             $('#password').focus();
         } else if (rm !== '' && un !== '' && pw !== '') {
             $('#recaptcha').openModal();
-            if (grecaptcha.getResponse() !== "" && grecaptcha.getResponse().length() !== 0) {
+//            if (grecaptcha.getResponse() !== "" && grecaptcha.getResponse().length() !== 0) {
                 $('#launch').attr('disabled', false);
                 $('#launch').click(function () {
                     $('#chatroom').submit();
                 });
-            }
+//            }
         }
     }
 }
