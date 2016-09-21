@@ -23,14 +23,19 @@ ul {
 #card-form {
     display: inline-block;
 }
-#card-text1, #card-text2, #card-text3 {
+#card-text1, #card-text2, #card-text3, #card-text4, #card-text5 {
     color: gray;
+}
+#card-text1, #card-text4 {
+    font-size: 20px;
 }
 #card-text1, #card-title {
     text-align: center;
 }
+#card-text4, #card-text5 {
+    position: relative;
+}
 #card-text2 {
-    font-size: 20px; 
     margin-left: 2.75px; 
     margin-top: 25px
 }
@@ -38,6 +43,15 @@ ul {
     font-size: 10px;
     margin-left: 3px;
     margin-top: 10px;
+}
+#card-text4 {
+    margin-top: 21.5px;
+    left: 9px;
+}
+#card-text5 {
+    float: left;
+    font-size: 15px;
+    left: 10px;
 }
 #card-title {
     margin: 0 auto;
