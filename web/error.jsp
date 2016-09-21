@@ -13,9 +13,6 @@
         <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.light_green-light_blue.min.css">
 
         <!-- JS -->
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
         <script src="https://code.getmdl.io/1.2.0/material.min.js" defer></script>
 
         <title>Oops !</title>
