@@ -86,7 +86,7 @@
         <meta name="msapplication-TileColor" content="#87cefa">
         <meta name="msapplication-TileImage" content="./img/favicons/mstile-144x144.png">
 
-        <!-- Microsoft Windows tile icons -->
+        <!-- * Microsoft Windows tile icons -->
         <meta name="msapplication-square70x70logo" content="./img/favicons/mstile-70x70.png">
         <meta name="msapplication-square150x150logo" content="./img/favicons/mstile-150x150.png">
         <meta name="msapplication-wide310x150logo" content="./img/favicons/mstile-310x150.png">
