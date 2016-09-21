@@ -4,13 +4,6 @@
 <html>
     <head>
         <%@include file="./header.jsp" %>
-        
-        <!-- CSS -->
-        <link rel="stylesheet" href="./css/index.css">
-        <link rel="stylesheet" href="./css/materialize.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" >
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.light_green-light_blue.min.css">
 
         <!-- JS -->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
