@@ -17,7 +17,7 @@
                     <div class="col s12">
                         <div class="mdl-card mdl-shadow--2dp card sticky-action" id="card">
                             <div class="card-content" id="card-content">
-                                <img style="float: left" src="./img/ic_error_outline_black_24dp.png">
+                                <img style="float: left; width: 96px" src="./img/ic_error_outline_black_48dp.png">
                                 <p class="flow-text" id="card-text4">There's something wrong.</p><br>
                                 <span class="flow-text" id="card-text5">
                                     <%
@@ -27,12 +27,13 @@
                                             InetAddress inetAddress = InetAddress.getLocalHost();
                                             String ip = inetAddress.getHostAddress();
                                             Date time = new Date();
-                                            SimpleDateFormat frmt = new SimpleDateFormat("@ E dd-MM-yyyy  HH:mm:ss ");
+                                            SimpleDateFormat frmt = new SimpleDateFormat("@ E dd-MM-yyyy  HH:mm:ss ", Locale.ENGLISH);
                                             TimeZone zone = TimeZone.getDefault();
                                             Calendar cal = GregorianCalendar.getInstance(zone);
                                             int offsetInMillis = zone.getOffset(cal.getTimeInMillis());
-                                            String offset = "GMT" + (offsetInMillis >= 0 ? "+" : "-") + String.format("%01d:%02d", Math.abs(offsetInMillis / 3600000), Math.abs((offsetInMillis / 60000) % 60));
-                                            out.println("Requested&nbsp /room &nbsp:  &nbsp&nbsp" + pageContext.getErrorData().getRequestURI());
+                                            String offset = "GMT" + (offsetInMillis >= 0 ? "+" : "-") + String.format("%02d:%02d", Math.abs(offsetInMillis / 3600000), Math.abs((offsetInMillis / 60000) % 60));
+                                            out.println("Requested&nbsp /room &nbsp:  &nbsp&nbsp" + request.getScheme() + "://" + request.getServerName()
+                                                    + pageContext.getErrorData().getRequestURI());
                                             System.err.println("Error : " + pageContext.getErrorData().getStatusCode() + " "
                                                     + HttpStatus.getStatusText(response.getStatus()) + " — requested /room : "
                                                     + pageContext.getErrorData().getRequestURI() + " — from : " + ip
@@ -48,7 +49,7 @@
                             <div class="card-action mdl-card__actions">
                                 <span class="mdl-layout-spacer"></span>
                                 <div style="margin-left: 20px">
-                                    <a href="/yacht">
+                                    <a href="/">
                                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn modal-trigger" id="join">Go back to Yacht</button>
                                     </a>
                                 </div>

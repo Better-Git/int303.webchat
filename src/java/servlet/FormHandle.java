@@ -1,48 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.FormResponse;
+import util.RecaptchaVerify;
 
-/**
- *
- * @author Student Lab
- */
-@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
-public class NewServlet extends HttpServlet {
+// Servlet annotation class LoginServlet
+public class FormHandle extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    public FormHandle() {
+        super();
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+
+        // Get request parameters
+        String rm = request.getParameter("room");
+        String usr = request.getParameter("username");
+        boolean prvt = (request.getParameter("mk-private") != null);
+        String pswd = request.getParameter("password");
+        String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+        boolean verify = RecaptchaVerify.verify(gRecaptchaResponse);
+
+        // Check conditions
+        if (FormResponse.RoomValid(rm) && FormResponse.UserValid(usr) && verify) {
+            request.setAttribute("room", rm);
+            request.setAttribute("username", usr);
+            if (prvt && FormResponse.PassValid(pswd)) {
+                request.setAttribute("mk-private", prvt);
+                request.setAttribute("password", pswd);
+            }
+            request.getRequestDispatcher("/WEB-INF/chatroom.jsp").forward(request, response);
+            System.out.println("Room : " + rm + " — user : " + usr + " — private : " + prvt
+                    + " — password : " + pswd + " — verify : " + verify);
+        } else {
+            request.setAttribute("verify", String.valueOf(verify));
+            getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").include(request, response);
         }
     }
 
@@ -84,5 +81,4 @@ public class NewServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

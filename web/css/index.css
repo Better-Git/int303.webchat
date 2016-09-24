@@ -26,7 +26,7 @@ ul {
 #card-text1, #card-text2, #card-text3, #card-text4, #card-text5 {
     color: gray;
 }
-#card-text1, #card-text4 {
+#card-text1, #card-text2, #card-text4 {
     font-size: 20px;
 }
 #card-text1, #card-title {

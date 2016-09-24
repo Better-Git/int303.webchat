@@ -34,12 +34,12 @@
                                 <p class="flow-text" id="card-text1">A web chat that relies on speed, security and simplicity.<br>Just chat, that's it.</p>
                             </div>
                             <div class="card-action mdl-card__actions" id="card-border">
-                                <form action="" method="post" name="chatroom" id="chatroom" onsubmit="validate();">
+                                <form id="chatroom" name="chatroom" action="FormHandle" method="post" onsubmit="validate();">
                                     <span id="spc"></span>
                                     <div id="card-form">
                                         <i class="material-icons" id="icon">forum</i>
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input" style="width: 2cm;">
-                                            <input class="mdl-textfield__input" type="text" id="room" name="room" value="" pattern="^[a-zA-Z0-9]{2,6}$" title="Please use only alphanumeric characters (A-Z, a-z, 0-9) 3 to 6 letters for a /room." minlength="3" maxlength="6">
+                                            <input class="mdl-textfield__input" id="room" name="room" type="text" minlength="3" maxlength="6" pattern="^[a-zA-Z0-9]{2,6}$" title="Please use only alphanumeric characters (A-Z, a-z, 0-9) 3 to 6 letters for a /room.">
                                             <label class="mdl-textfield__label" for="room">/room</label>
                                             <span class="mdl-textfield__error">Alphanumeric 3 to 6 letters!</span>
                                         </div>
@@ -48,31 +48,33 @@
                                     <div id="card-form">
                                         <i class="material-icons" id="icon">account_circle</i>
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input" style="width: 3.2cm">
-                                            <input class="mdl-textfield__input" type="text" id="username" name="username" value="" pattern="^[a-zA-Z0-9]{1,}$" title="Please use only alphanumeric characters (A-Z, a-z, 0-9) at least 1 letter for a name." minlength="1">
+                                            <input class="mdl-textfield__input" id="username" name="username" type="text" minlength="1" pattern="^[a-zA-Z0-9]{1,}$" title="Please use only alphanumeric characters (A-Z, a-z, 0-9) at least 1 letter for a name.">
                                             <label class="mdl-textfield__label" for="username">Name</label>
                                             <span class="mdl-textfield__error">Alphanumeric at least 1 letter!</span>
                                         </div>
                                     </div>
                                     <span id="line-break-m"></span>
-                                    <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="mk-private" id="icon-toggle" onclick="mkPrivate();">
-                                        <input class="mdl-icon-toggle__input" type="checkbox" id="mk-private" name="mk-private" value="">
+                                    <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" id="icon-toggle" for="mk-private" onclick="mkPrivate();">
+                                        <input class="mdl-icon-toggle__input" id="mk-private" name="mk-private" type="checkbox" value="yes">
                                         <i class="mdl-icon-toggle__label material-icons">vpn_key</i>
                                     </label>
                                     <input data-bind="mkPassword: {value: password}">
                                     <script src="./js/index.js"></script>
                                     <span id="line-break-m"></span>
                                     <span id="line-break"></span>
+                                    <!--
                                     <button class="mdl-chip mdl-color--light-blue-A200" type="button">
                                         <svg id="icon-button" viewBox="0 0 24 24">
                                         <path fill="#000000" d="M4,4H10V10H4V4M20,4V10H14V4H20M14,15H16V13H14V11H16V13H18V11H20V13H18V15H20V18H18V20H16V18H13V20H11V16H14V15M16,15V18H18V15H16M4,20V14H10V20H4M6,6V8H8V6H6M16,6V8H18V6H16M6,16V18H8V16H6M4,11H6V13H4V11M9,11H13V15H11V13H9V11M11,6H13V10H11V6M2,2V6H0V2A2,2 0 0,1 2,0H6V2H2M22,0A2,2 0 0,1 24,2V6H22V2H18V0H22M2,18V22H6V24H2A2,2 0 0,1 0,22V18H2M22,22V18H24V22A2,2 0 0,1 22,24H18V22H22Z" />
                                         </svg>
                                         <span class="mdl-chip__text">Scan QR code for /room</span>
                                     </button>
+                                    -->
                                     <span id="line-break-s"></span>
                                     <span class="mdl-layout-spacer"></span>
                                     <div style="float: right">
                                         <span>
-                                            <button data-target="recaptcha" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn modal-trigger" id="join">Join</button>
+                                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn modal-trigger" id="join" data-target="recaptcha">Join</button>
                                         </span>
                                         <i class="material-icons activator" id="help">help</i>
                                     </div>
@@ -98,19 +100,30 @@
                 </div>
             </div>
         </main>
+        <%  try {
+                String verify = (String) request.getAttribute("verify");
+                if ((!verify.equals("") || !verify.equals(null)) && verify.equals("false")) { %>
+        <script>
+            $(document).ready(function () {
+                Materialize.toast('Your captcha is not verified.<br>Please try again. &#128581', 5000);
+            });
+        </script>
+        <%      }
+            } catch (NullPointerException e) {
+            }%>
         <footer class="page-footer">
             <div class="container">
-                <p class="white-text">INT303 Web Programming Project &nbsp;,&nbsp; © 2016</p>
+                <p class="white-text">INT303 Web Programming Project &nbsp;,&nbsp; &#169; 2016</p>
             </div>
         </footer>
-        <div id="recaptcha" class="modal bottom-sheet">
+        <div class="modal bottom-sheet" id="recaptcha">
             <div class="modal-content">
                 <h4>Are you a robot?</h4>
                 <p>Please help us to protect robots and spams by verifying yourself.</p>
-                <div class="g-recaptcha" data-sitekey="yourSiteKey" data-theme="dark"></div>
+                <div class="g-recaptcha" form="chatroom" data-sitekey="yourSiteKey" data-theme="dark"></div>
             </div><hr>
             <div class="modal-footer">
-                <button type="submit" value="Submit" form="chatroom" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored modal-action modal-close btn" id="launch" disabled>Chat now</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored modal-action modal-close btn" id="launch" form="chatroom" type="submit" disabled>Chat now</button>
             </div>
         </div>
     </body>
