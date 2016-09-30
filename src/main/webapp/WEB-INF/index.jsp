@@ -169,7 +169,7 @@
         </script>
         <%      }
             } catch (NullPointerException e) {
-            }%>
+            } %>
         <footer class="page-footer">
             <div class="container">
                 <p class="white-text">INT303 Web Programming Project &nbsp;,&nbsp; &#169; 2016</p>
@@ -179,7 +179,7 @@
             <div class="modal-content">
                 <h4>Are you a robot?</h4>
                 <p>Please help us to protect robots and spams by verifying yourself.</p>
-                <div class="g-recaptcha" form="chatroom" data-callback="launch" data-expired-callback="unlaunch" data-sitekey="6LcSyAcUAAAAAJQHcNS-7mxklAXSOnPxjLEdSfyd" data-theme="dark"></div>
+                <div class="g-recaptcha" data-callback="launch" data-expired-callback="unlaunch" data-sitekey="6LcSyAcUAAAAAJQHcNS-7mxklAXSOnPxjLEdSfyd" data-theme="dark" form="chatroom"></div>
             </div><hr>
             <div class="modal-footer">
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored modal-action modal-close btn" id="launch" form="chatroom" type="submit">Chat now</button>
