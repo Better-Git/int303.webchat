@@ -1,5 +1,5 @@
 <%-- Document   : header, Created on : 21-Sep-2016, Author     : B --%>
-<%@page contentType="text/html" import="java.util.*, java.net.InetAddress, java.text.SimpleDateFormat, org.apache.commons.httpclient.*" isErrorPage="true" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" isErrorPage="true" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,27 +22,8 @@
                                 <span class="flow-text" id="card-text5">
                                     <%
                                         out.println("Error &nbsp:  &nbsp&nbsp" + pageContext.getErrorData().getStatusCode());
-                                        out.println("&nbsp" + HttpStatus.getStatusText(pageContext.getErrorData().getStatusCode()) + "<br>");
-                                        if (pageContext.getException() == null) {
-                                            InetAddress inetAddress = InetAddress.getLocalHost();
-                                            String ip = inetAddress.getHostAddress();
-                                            Date time = new Date();
-                                            SimpleDateFormat frmt = new SimpleDateFormat("@ E dd-MM-yyyy  HH:mm:ss ", Locale.ENGLISH);
-                                            TimeZone zone = TimeZone.getDefault();
-                                            Calendar cal = GregorianCalendar.getInstance(zone);
-                                            int offsetInMillis = zone.getOffset(cal.getTimeInMillis());
-                                            String offset = "GMT" + (offsetInMillis >= 0 ? "+" : "-") + String.format("%02d:%02d", Math.abs(offsetInMillis / 3600000), Math.abs((offsetInMillis / 60000) % 60));
-                                            out.println("Requested&nbsp /room &nbsp:  &nbsp&nbsp" + request.getScheme() + "://" + request.getServerName()
-                                                    + pageContext.getErrorData().getRequestURI());
-                                            System.err.println("Error : " + pageContext.getErrorData().getStatusCode() + " "
-                                                    + HttpStatus.getStatusText(pageContext.getErrorData().getStatusCode()) + " — requested /room : "
-                                                    + pageContext.getErrorData().getRequestURI() + " — from : " + ip
-                                                    + " — " + frmt.format(time) + offset);
-                                        } else {
-                                            out.println("Exception&nbsp error &nbsp:  &nbsp&nbsp" + pageContext.getException());
-                                            System.err.print("Error : ");
-                                            pageContext.getException().printStackTrace();
-                                        }
+                                        out.println("&nbspInternal Server Error<br>");
+                                        out.println("Exception&nbsp error &nbsp:  &nbsp&nbsp" + pageContext.getException());
                                     %>
                                 </span>
                             </div>

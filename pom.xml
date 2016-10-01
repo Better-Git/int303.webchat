@@ -33,12 +33,6 @@
             <artifactId>appengine-api-1.0-sdk</artifactId>
             <version>${appengine.version}</version>
         </dependency>
-<!--        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>-->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -64,14 +58,14 @@
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>com.yacht.util</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>3.1</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
         <dependency>
-            <groupId>com.yacht.util</groupId>
-            <artifactId>javaee-web-api-7.0</artifactId>
-            <version>7.0</version>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
         </dependency>
     </dependencies>
 
