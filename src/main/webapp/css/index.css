@@ -211,9 +211,27 @@ _:-ms-lang(x), _:-webkit-full-screen,
     }
 }
 
+@media (width: 507px) and (device-width: 768px) {
+    #card-content {
+        height: 23em;
+    }
+}
+
 @media (width: 480px) and (height: 480px) {
     #card-content {
         height: 23.5em;
+    }
+}
+
+@media (width: 375px) and (device-width: 1024px) {
+    #card-content {
+        height: 27.7em;
+    }
+}
+
+@media (width: 320px) and (device-width: 1024px), (width: 320px) and (device-width: 768px) {
+    #card-content {
+        height: 32em;
     }
 }
 

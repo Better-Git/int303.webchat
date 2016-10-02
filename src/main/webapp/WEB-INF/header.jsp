@@ -9,7 +9,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta name="apple-mobile-web-app-title" content="Yacht">
 
-        <!-- * Apple iOS web app splash pages -->
+        <!-- * Apple iOS web app splash pages (not working in iOS 9+) -->
         <!-- @ iPhone /3G/3GS -->
         <link rel="apple-touch-startup-image" href="./img/splash/apple-touch-startup-image-320x460.png"
               media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)">
@@ -18,13 +18,13 @@
               media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
         <!-- @ iPhone 5/5c/5s/SE -->
         <link rel="apple-touch-startup-image" href="./img/splash/apple-touch-startup-image-640x1096.png"
-              media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
+              media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
         <!-- @ iPhone 6/6s/7 -->
-        <link rel="apple-touch-startup-image" href="./img/splash/apple-touch-startup-image-750×1294.png"
+        <link rel="apple-touch-startup-image" href="./img/splash/apple-touch-startup-image-750x1294.png"
               media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)
               and (orientation: portrait)">
         <!-- @ iPhone 6/6s/7 Plus (Portrait) -->
-        <link rel="apple-touch-startup-image" href="./img/splash/apple-touch-startup-image-1242×2148.png"
+        <link rel="apple-touch-startup-image" href="./img/splash/apple-touch-startup-image-1242x2148.png"
               media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)
               and (orientation: portrait)">
         <!-- @ iPhone 6/6s/7 Plus (Landscape) -->

@@ -61,12 +61,14 @@
                     }
                 }
             }
-            
+
             function unlaunch() {
                 $('#launch').prop('disabled', true);
             }
 
             $(function () {
+                document.exitFullscreen();
+                screen.orientation.unlock();
                 unlaunch();
             });
         </script>
@@ -163,13 +165,13 @@
                 String verify = (String) request.getAttribute("verify");
                 if ((!verify.equals("") || !verify.equals(null)) && verify.equals("false")) { %>
         <script>
-            $(document).ready(function () {
-                Materialize.toast('Your captcha is not verified.<br>Please try again. &#128581', 5000);
-            });
+                                        $(document).ready(function () {
+                                            Materialize.toast('Your captcha is not verified.<br>Please try again. &#128581', 5000);
+                                        });
         </script>
         <%      }
             } catch (NullPointerException e) {
-            } %>
+            }%>
         <footer class="page-footer">
             <div class="container">
                 <p class="white-text">INT303 Web Programming Project &nbsp;,&nbsp; &#169; 2016</p>

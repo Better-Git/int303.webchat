@@ -1,6 +1,6 @@
 {   
     "short_name": "Yacht",
-    "name": "Yacht – Just chat, that's it.",
+    "name": "Yacht",
     "icons": [
         {
             "src": "./img/favicons/android-chrome-36x36.png",
@@ -41,7 +41,7 @@
     ],
     "background_color": "#87cefa",
     "display": "standalone",
-    "orientation": "portrait",
-    "start_url": "/index.html",
+    "orientation": "any",
+    "start_url": "/",
     "theme_color": "#87cefa"
 }
