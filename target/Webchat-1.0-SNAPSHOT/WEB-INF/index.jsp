@@ -4,6 +4,8 @@
 <html>
     <head>
         <%@include file="./header.jsp" %>
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.light_green-light_blue.min.css">
 
         <!-- JS -->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
