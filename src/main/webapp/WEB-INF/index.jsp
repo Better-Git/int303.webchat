@@ -1,4 +1,3 @@
-<%-- Document   : index, Created on : 21-Sep-2016, Author     : B --%>
 <%@page contentType="text/html" isErrorPage="false" pageEncoding="UTF-8" errorPage="./error.jsp"%>
 <!DOCTYPE html>
 <html>
