@@ -117,9 +117,6 @@ ul {
     #card {
         width: 615px;
     }
-    #card-border {
-        height: 140px;
-    }
     #close {
         left: 23.1em;
     }
@@ -138,13 +135,11 @@ ul {
     #close {
         left: 9.7em;
     }
-    #line-break-m {
-        display: block;
-        margin-bottom: -10px;
-    }
-    #line-break-m:after {
-        content: "\A";
-        white-space: pre;
+}
+
+@media (min-width: 560px) {
+    #card-border {
+        height: 79px;
     }
 }
 
@@ -181,6 +176,17 @@ _:-ms-lang(x), _:-webkit-full-screen,
 }
 
 /* Media queries for portrait */
+
+@media (max-width: 480px) {
+    #line-break-m {
+        display: block;
+        margin-bottom: -10px;
+    }
+    #line-break-m:after {
+        content: "\A";
+        white-space: pre;
+    }
+}
 
 @media (max-width: 400px) {
     #line-break-s {

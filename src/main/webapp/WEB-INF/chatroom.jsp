@@ -1,4 +1,5 @@
 <%@page contentType="text/html" isErrorPage="false" pageEncoding="UTF-8" errorPage="./error.jsp"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +12,6 @@
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
         <script src="https://code.getmdl.io/1.2.0/material.min.js" defer></script>
-        <script src="./js/chatroom.js"></script>
 
         <title>Chatroom Sample</title>
     </head>
@@ -53,8 +53,8 @@
                         </li>
                     </ul></li>
                 <li><div class="divider"></div></li>
-                <li><a class="waves-effect"><i class="material-icons">share</i>Share</a></li>
-                <li><a class="waves-effect"><i class="material-icons">highlight_off</i>Log out</a></li>
+                <li><a class="waves-effect modal-trigger" data-target="shareit"><i class="material-icons">share</i>Share</a></li>
+                <li><a class="waves-effect modal-trigger" data-target="imout"><i class="material-icons">highlight_off</i>Log out</a></li>
                 <li><a class="subheader">&copy;&nbsp; Yacht,&nbsp; 2016</a></li>
                 <li><a class="subheader" id="fox">The Simpsons<sup id="trade">TM</sup> and &copy; Fox.</a></li>
             </ul>
@@ -64,7 +64,11 @@
                         <i class="material-icons">menu</i>
                     </a>
                     <div class="mdl-layout-spacer"></div>
-                    <span class="mdl-layout-title">Tested</span>
+                    <%
+                        String rm = request.getParameter("roomName");
+                        pageContext.setAttribute("roomName", rm);
+                    %>
+                    <span class="mdl-layout-title">${fn:escapeXml(roomName)}</span>
                     <div class="mdl-layout-spacer"></div>
                 </div>
             </header>
@@ -72,11 +76,23 @@
         <script src="./js/chatroom.js"></script>
         <main class="mdl-layout__content" id="content">
             <div class="page-content">
+                <div id="spcr"></div>
                 <!-- Your content goes here -->
+                <!--
+                <div class="card mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__supporting-text" style="width: auto">
+                -->
+                        <p>asasdjjkasdk${fn:escapeXml(content)}</p>
+                <!--
+                    </div>
+                </div>
+                -->
+                <%--
                 <p>${requestScope.room}</p>
                 <p>${requestScope.username}</p>
                 <p>${requestScope.mk-private}</p>
                 <p>${requestScope.password}</p>
+                --%>
             </div>
         </main>
         <footer class="page-footer white">
@@ -88,6 +104,7 @@
                 <button class="mdl-button mdl-js-button mdl-button--icon shift3" type="submit">
                     <i class="material-icons">send</i>
                 </button>
+                <!--
                 <div class="fixed-action-btn click-to-toggle" id="add">
                     <a class="mdl-button mdl-js-button mdl-button--icon shift4">
                         <i class="material-icons">add</i>
@@ -98,7 +115,33 @@
                         <li><a class="btn-floating red" id="add-child"><i class="material-icons">gps_fixed</i></a></li>                        
                     </ul>
                 </div>
+                -->
             </form>
         </footer>
+        <div class="modal" id="shareit">
+            <div class="modal-content">
+                <h4>To share this /room</h4>
+                <p><strong>1.)</strong>&nbsp; Go to &nbsp;<strong>goo.gl/X2BpkW</strong></p>
+                <p><strong>2.)</strong>&nbsp; Give this /room code : &nbsp;<strong>${fn:escapeXml(roomName)}</strong></p>
+                <%--
+                ${requestScope.password == null || "" ? "" : "<p><strong>3.)</strong>&nbsp; Tell this password to your friends :<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>????????</u></strong></p>"}
+                --%>
+            </div>
+            <div class="modal-footer">
+                <a class="modal-action modal-close waves-effect btn-flat">Got it</a>
+            </div>
+        </div>
+        <div class="modal" id="imout">
+            <div class="modal-content">
+                <h4>Are you sure to leave?</h4>
+                <!--
+                <p>If you're the only user left in this room, all of chat records will be deleted !</p>
+                -->
+            </div>
+            <div class="modal-footer">
+                <a class="modal-action modal-close waves-effect btn-flat">No</a>
+                <a href="" class="modal-action modal-close waves-effect btn-flat">Yes</a>
+            </div>
+        </div>
     </body>
 </html>

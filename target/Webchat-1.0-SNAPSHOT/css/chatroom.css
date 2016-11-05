@@ -52,6 +52,19 @@ main {
 #fox {
     font-size: 10px;
 }
+#ft, #hd {
+    position: fixed;
+}
+#ft {
+    bottom: 0px;
+    width: 100%;
+}
+#imout, #shareit {
+    width: 350px;
+}
+#spcr {
+    margin-top: 75px;
+}
 #trade {
     font-size: 5px;
     top: -4px;

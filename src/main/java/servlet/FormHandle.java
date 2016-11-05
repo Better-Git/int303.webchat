@@ -5,15 +5,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.FormResponse;
-import util.RecaptchaVerify;
 
 // Servlet annotation class LoginServlet
 public class FormHandle extends HttpServlet {
-
-    public FormHandle() {
-        super();
-    }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -21,26 +15,29 @@ public class FormHandle extends HttpServlet {
         // Get request parameters
         String rm = request.getParameter("room");
         String usr = request.getParameter("username");
+        /*
         boolean prvt = (request.getParameter("mk-private") != null);
         String pswd = request.getParameter("password");
         String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
         boolean verify = RecaptchaVerify.verify(gRecaptchaResponse);
+        */
 
         // Check conditions
-        if (FormResponse.RoomValid(rm) && FormResponse.UserValid(usr) && verify) {
+        // if (FormResponse.RoomValid(rm) && FormResponse.UserValid(usr)) {
             request.setAttribute("room", rm);
             request.setAttribute("username", usr);
+            /*
             if (prvt && FormResponse.PassValid(pswd)) {
                 request.setAttribute("mk-private", prvt);
                 request.setAttribute("password", pswd);
             }
-            request.getRequestDispatcher("/WEB-INF/chatroom.jsp").forward(request, response);
-            System.out.println("Room : " + rm + " — user : " + usr + " — private : " + prvt
-                    + " — password : " + pswd + " — verify : " + verify);
-        } else {
-            request.setAttribute("verify", String.valueOf(verify));
-            getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").include(request, response);
-        }
+            */
+            getServletContext().getRequestDispatcher("/WEB-INF/chatroom.jsp").forward(request, response);
+            // System.out.println("Room : " + rm + " — user : " + usr + " — private : " + prvt + " — password : " + pswd + " — verify : " + verify);
+        // } else {
+            // request.setAttribute("verify", String.valueOf(verify));
+            // getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        // }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

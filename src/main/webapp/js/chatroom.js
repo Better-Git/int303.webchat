@@ -1,9 +1,11 @@
+$('#fox').css('visibility', 'hidden');
 $('.button-collapse').sideNav({
     menuWidth: 240,
     edge: 'left',
     closeOnClick: true
 });
 $('.collapsible').collapsible();
+$('.modal-trigger').leanModal();
 
 var num1, num2, hd, uv;
 
@@ -64,7 +66,6 @@ $(function () {
             uv = 'url(http://desktopwalls.net/wp-content/uploads/2014/07/Bart%20Simpson%20Cartoon%20Art%20Illustration%20Desktop%20Wallpaper.jpg) repeat -825% 25%/250px 130px';
             break;
     }
-    $('#fox').css('visibility', 'hidden');
 });
 
 function configure(hd, uv, css) {
