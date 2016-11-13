@@ -17,16 +17,24 @@
         <servlet-class>servlet.FormHandle</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SignRoomServlet</servlet-name>
-        <servlet-class>servlet.SignRoomServlet</servlet-class>
+        <servlet-name>ChatHandle</servlet-name>
+        <servlet-class>servlet.ChatHandle</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuitHandle</servlet-name>
+        <servlet-class>servlet.QuitHandle</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>FormHandle</servlet-name>
         <url-pattern>/FormHandle</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SignRoomServlet</servlet-name>
-        <url-pattern>/SignRoomServlet</url-pattern>
+        <servlet-name>ChatHandle</servlet-name>
+        <url-pattern>/ChatHandle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuitHandle</servlet-name>
+        <url-pattern>/QuitHandle</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

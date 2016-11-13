@@ -73,9 +73,10 @@
             }
 
             $(function () {
-                unlaunch();
-                document.exitFullscreen();
+                window.history.replaceState('', '', '.');
+//                unlaunch();
                 screen.orientation.unlock();
+                document.exitFullscreen();
             });
         </script>
 

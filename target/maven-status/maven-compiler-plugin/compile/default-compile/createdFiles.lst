@@ -1,12 +1,9 @@
 servlet\FormHandle.class
 model\MyTestClass$1.class
-servlet\SignRoomServlet.class
 unused\AnonymousFilter.class
 model\Room.class
-servlet\ContentServlet.class
 model\MyTestClass.class
 unused\RecaptchaVerify.class
 model\OfyHelper.class
 unused\FormResponse.class
 model\Content.class
-servlet\SignRoomServlet$1.class

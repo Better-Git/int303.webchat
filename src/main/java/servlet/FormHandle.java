@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// Servlet annotation class LoginServlet
 public class FormHandle extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

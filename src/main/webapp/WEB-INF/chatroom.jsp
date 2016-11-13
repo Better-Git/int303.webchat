@@ -8,6 +8,7 @@
 <%@page import="com.googlecode.objectify.ObjectifyService"%>
 <%@page contentType="text/html" isErrorPage="false" pageEncoding="UTF-8" errorPage="./error.jsp"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="ti" uri="/WEB-INF/time_tld.tld"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,34 +21,30 @@
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
         <script src="https://code.getmdl.io/1.2.0/material.min.js" defer></script>
+        <script>
+            $(function () {
+                window.history.replaceState('', '', './${fn:escapeXml(roomName)}');
+            });
+        </script>
 
-        <title>Chatroom Sample</title>
+        <title>Yacht / ${fn:escapeXml(roomName)}</title>
     </head>
     <body>
         <%
-            String roomName = request.getParameter("roomName");
-            if (roomName == null) {
-                roomName = "basic";
-            }
-            pageContext.setAttribute("roomName", roomName);
-            UserService userService = UserServiceFactory.getUserService();
-            User user = userService.getCurrentUser();
-            if (user != null) {
-                pageContext.setAttribute("user", user);
-            }
+            pageContext.setAttribute("roomName", request.getParameter("roomName"));
 
             //[START datastore]
             // Create the correct Ancestor key
-            Key<Room> theRoom = Key.create(Room.class, roomName);
+            Key<Room> theRoom = Key.create(Room.class, request.getParameter("roomName"));
 
             // Run an ancestor query to ensure we see the most up-to-date
             // view of the Contents belonging to the selected Room.
             List<Content> contents = ObjectifyService.ofy()
                     .load()
                     .type(Content.class) // We want only Contents
-                    .ancestor(theRoom) // Anyone in this book
+                    .ancestor(theRoom) // Anyone in this room
                     .order("-date") // Most recent first - date is indexed.
-                    .limit(500) // Only show 5 of them.
+                    .limit(500) // Only show 500 of them.
                     .list();
         %>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -98,10 +95,6 @@
                         <i class="material-icons">menu</i>
                     </a>
                     <div class="mdl-layout-spacer"></div>
-                    <%
-                        String rm = request.getParameter("roomName");
-                        pageContext.setAttribute("roomName", rm);
-                    %>
                     <span class="mdl-layout-title">${fn:escapeXml(roomName)}</span>
                     <div class="mdl-layout-spacer"></div>
                 </div>
@@ -112,49 +105,28 @@
             <div class="page-content">
                 <div id="spcr"></div>
                 <%
-                    String usr = request.getParameter("username");
-
-                    //pageContext.setAttribute("username", usr);
-                    // Look at all of our greetings
                     for (Content c : contents) {
                         pageContext.setAttribute("content", c.content);
-                        String author;
-                        if (c.sender == null) {
-                            author = "An anonymous person";
-                        } else {
-                            author = c.sender;
-
-                            if (user != null) {
-                                author += " (You)";
-                            }
+                        if (c.sender != null) {
+                            pageContext.setAttribute("username", c.sender);
                         }
-                        pageContext.setAttribute("username", author);
                 %>
                 <!-- Your content goes here -->
-                <!--
-                <div class="card mdl-card mdl-shadow--2dp">
-                    <div class="mdl-card__supporting-text" style="width: auto">
-                -->
-                        <p>${fn:escapeXml(username)}&emsp;: ${fn:escapeXml(content)}</p>
-                <!--
+                <div class="card mdl-shadow--2dp" style="margin: 0 auto 20px auto; width: 500px;">
+                    <div class="mdl-card__supporting-text">
+                        <ti:getTime />
+                        <p style="font-size: 20px; margin-top: 15px;"><b>${fn:escapeXml(username)}&nbsp;&nbsp;:</b>&nbsp;&nbsp;${fn:escapeXml(content)}</p>
                     </div>
                 </div>
-                -->
-                <%--
-                <p>${requestScope.room}</p>
-                <p>${requestScope.username}</p>
-                <p>${requestScope.mk-private}</p>
-                <p>${requestScope.password}</p>
-                --%>
-                <%}%>
+                <% }%>
             </div>
         </main>
         <footer class="page-footer white">
-            <form class="shift2" action="SignRoomServlet" method="post">
+            <form class="shift2" action="ChatHandle" method="post">
                 <div class="mdl-textfield mdl-js-textfield chat-message">
                     <input class="mdl-textfield__input chat-input" id="message" name="message" type="text">
                     <label class="mdl-textfield__label chat-input" for="message">Type any message...</label>
-                    <input type="hidden" name="roomName" value="${roomName}">
+                    <input type="hidden" name="roomName" value="${requestScope.roomName}">
                     <input type="hidden" name="username" value="${requestScope.username}">
                 </div>
                 <button class="mdl-button mdl-js-button mdl-button--icon shift3" type="submit">
@@ -196,7 +168,7 @@
             </div>
             <div class="modal-footer">
                 <a class="modal-action modal-close waves-effect btn-flat">No</a>
-                <a href="" class="modal-action modal-close waves-effect btn-flat">Yes</a>
+                <a href="QuitHandle" class="modal-action modal-close waves-effect btn-flat">Yes</a>
             </div>
         </div>
     </body>

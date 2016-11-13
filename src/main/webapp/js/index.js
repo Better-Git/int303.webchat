@@ -1,6 +1,3 @@
-document.documentElement.setAttribute('data-platform', navigator.platform);
-document.documentElement.setAttribute('data-useragent', navigator.userAgent);
-
 $(function () {
     if ($(window).width() <= 280) {
         $('#close').hide();
