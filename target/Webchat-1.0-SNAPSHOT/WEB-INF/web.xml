@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <display-name>Yacht – Instant Messaging Service</display-name>
+    <filter>
+        <filter-name>ObjectifyFilter</filter-name>
+        <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+        <listener-class>model.OfyHelper</listener-class>
+    </listener>
     <servlet>
         <servlet-name>FormHandle</servlet-name>
         <servlet-class>servlet.FormHandle</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ContentServlet</servlet-name>
-        <servlet-class>servlet.ContentServlet</servlet-class>
+        <servlet-name>SignRoomServlet</servlet-name>
+        <servlet-class>servlet.SignRoomServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>FormHandle</servlet-name>
         <url-pattern>/FormHandle</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ContentServlet</servlet-name>
-        <url-pattern>/Content</url-pattern>
+        <servlet-name>SignRoomServlet</servlet-name>
+        <url-pattern>/SignRoomServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

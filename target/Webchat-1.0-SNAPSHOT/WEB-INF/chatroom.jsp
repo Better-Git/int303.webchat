@@ -1,3 +1,11 @@
+<%@page import="model.Content"%>
+<%@page import="model.Room"%>
+<%@page import="java.util.List"%>
+<%@page import="com.google.appengine.api.users.UserServiceFactory"%>
+<%@page import="com.google.appengine.api.users.User"%>
+<%@page import="com.google.appengine.api.users.UserService"%>
+<%@page import="com.googlecode.objectify.Key"%>
+<%@page import="com.googlecode.objectify.ObjectifyService"%>
 <%@page contentType="text/html" isErrorPage="false" pageEncoding="UTF-8" errorPage="./error.jsp"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
@@ -16,11 +24,37 @@
         <title>Chatroom Sample</title>
     </head>
     <body>
+        <%
+            String roomName = request.getParameter("roomName");
+            if (roomName == null) {
+                roomName = "basic";
+            }
+            pageContext.setAttribute("roomName", roomName);
+            UserService userService = UserServiceFactory.getUserService();
+            User user = userService.getCurrentUser();
+            if (user != null) {
+                pageContext.setAttribute("user", user);
+            }
+
+            //[START datastore]
+            // Create the correct Ancestor key
+            Key<Room> theRoom = Key.create(Room.class, roomName);
+
+            // Run an ancestor query to ensure we see the most up-to-date
+            // view of the Contents belonging to the selected Room.
+            List<Content> contents = ObjectifyService.ofy()
+                    .load()
+                    .type(Content.class) // We want only Contents
+                    .ancestor(theRoom) // Anyone in this book
+                    .order("-date") // Most recent first - date is indexed.
+                    .limit(500) // Only show 5 of them.
+                    .list();
+        %>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <ul id="slide-out" class="side-nav">
                 <li><div class="userView" id="uv" style="background: #8BC34A;">
                         <i class="material-icons">account_circle</i>
-                        <span class="chat-title">Username</span>
+                        <span class="chat-title">${requestScope.username}</span>
                     </div></li>
                 <li><ul class="collapsible collapsible-accordion">
                         <li><a class="collapsible-header shift1">Theme<i class="material-icons">expand_more</i></a>
@@ -77,12 +111,31 @@
         <main class="mdl-layout__content" id="content">
             <div class="page-content">
                 <div id="spcr"></div>
+                <%
+                    String usr = request.getParameter("username");
+
+                    //pageContext.setAttribute("username", usr);
+                    // Look at all of our greetings
+                    for (Content c : contents) {
+                        pageContext.setAttribute("content", c.content);
+                        String author;
+                        if (c.sender == null) {
+                            author = "An anonymous person";
+                        } else {
+                            author = c.sender;
+
+                            if (user != null) {
+                                author += " (You)";
+                            }
+                        }
+                        pageContext.setAttribute("username", author);
+                %>
                 <!-- Your content goes here -->
                 <!--
                 <div class="card mdl-card mdl-shadow--2dp">
                     <div class="mdl-card__supporting-text" style="width: auto">
                 -->
-                        <p>asasdjjkasdk${fn:escapeXml(content)}</p>
+                        <p>${fn:escapeXml(username)}&emsp;: ${fn:escapeXml(content)}</p>
                 <!--
                     </div>
                 </div>
@@ -93,13 +146,16 @@
                 <p>${requestScope.mk-private}</p>
                 <p>${requestScope.password}</p>
                 --%>
+                <%}%>
             </div>
         </main>
         <footer class="page-footer white">
-            <form class="shift2" action="" method="post" onsubmit="return false;">
+            <form class="shift2" action="SignRoomServlet" method="post">
                 <div class="mdl-textfield mdl-js-textfield chat-message">
                     <input class="mdl-textfield__input chat-input" id="message" name="message" type="text">
                     <label class="mdl-textfield__label chat-input" for="message">Type any message...</label>
+                    <input type="hidden" name="roomName" value="${roomName}">
+                    <input type="hidden" name="username" value="${requestScope.username}">
                 </div>
                 <button class="mdl-button mdl-js-button mdl-button--icon shift3" type="submit">
                     <i class="material-icons">send</i>

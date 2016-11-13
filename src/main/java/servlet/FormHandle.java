@@ -13,7 +13,7 @@ public class FormHandle extends HttpServlet {
             throws ServletException, IOException {
 
         // Get request parameters
-        String rm = request.getParameter("room");
+        String rm = request.getParameter("roomName");
         String usr = request.getParameter("username");
         /*
         boolean prvt = (request.getParameter("mk-private") != null);
@@ -24,7 +24,7 @@ public class FormHandle extends HttpServlet {
 
         // Check conditions
         // if (FormResponse.RoomValid(rm) && FormResponse.UserValid(usr)) {
-            request.setAttribute("room", rm);
+            request.setAttribute("roomName", rm);
             request.setAttribute("username", usr);
             /*
             if (prvt && FormResponse.PassValid(pswd)) {

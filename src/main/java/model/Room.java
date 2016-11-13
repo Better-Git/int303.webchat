@@ -7,6 +7,7 @@ import com.googlecode.objectify.annotation.Id;
 public class Room {
 
     @Id
+    public String name;
     public String room;
 
     public Room(String roomName, String content) {
