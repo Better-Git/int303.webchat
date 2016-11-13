@@ -74,7 +74,7 @@
 
             $(function () {
                 window.history.replaceState('', '', '.');
-//                unlaunch();
+                unlaunch();
                 screen.orientation.unlock();
                 document.exitFullscreen();
             });

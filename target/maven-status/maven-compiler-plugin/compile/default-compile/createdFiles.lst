@@ -1,7 +1,11 @@
 servlet\FormHandle.class
 model\MyTestClass$1.class
+servlet\TimeTag.class
+servlet\QuitHandle.class
 unused\AnonymousFilter.class
 model\Room.class
+servlet\ChatHandle.class
+servlet\ChatHandle$1.class
 model\MyTestClass.class
 unused\RecaptchaVerify.class
 model\OfyHelper.class

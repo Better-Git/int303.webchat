@@ -144,4 +144,5 @@ function theme(element) {
             configure("", "#607D8B", "https://code.getmdl.io/1.2.1/material.blue_grey-teal.min.css");
             break;
     }
+//    document.cookie = "theme=" + element.id;
 }

@@ -8,7 +8,7 @@
 <%@page import="com.googlecode.objectify.ObjectifyService"%>
 <%@page contentType="text/html" isErrorPage="false" pageEncoding="UTF-8" errorPage="./error.jsp"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@taglib prefix="ti" uri="/WEB-INF/time_tld.tld"%>
+<%-- <%@taglib prefix="ti" uri="/WEB-INF/time_tld.tld"%> --%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +23,11 @@
         <script src="https://code.getmdl.io/1.2.0/material.min.js" defer></script>
         <script>
             $(function () {
-                window.history.replaceState('', '', './${fn:escapeXml(roomName)}');
+//                window.history.replaceState('', '', './${fn:escapeXml(roomName)}');
+            });
+
+            $(window).bind('beforeunload', function () {
+//                return false;
             });
         </script>
 
@@ -114,11 +118,11 @@
                 <!-- Your content goes here -->
                 <div class="card mdl-shadow--2dp" style="margin: 0 auto 20px auto; width: 500px;">
                     <div class="mdl-card__supporting-text">
-                        <ti:getTime />
+                        <%-- <ti:getTime /> --%>
                         <p style="font-size: 20px; margin-top: 15px;"><b>${fn:escapeXml(username)}&nbsp;&nbsp;:</b>&nbsp;&nbsp;${fn:escapeXml(content)}</p>
                     </div>
                 </div>
-                <% }%>
+                <% } %>
             </div>
         </main>
         <footer class="page-footer white">
