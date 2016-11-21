@@ -16,6 +16,7 @@ public class OfyHelper implements ServletContextListener {
         // request.
         ObjectifyService.register(Content.class);
         ObjectifyService.register(Room.class);
+        ObjectifyService.register(MyUser.class);
     }
 
     @Override

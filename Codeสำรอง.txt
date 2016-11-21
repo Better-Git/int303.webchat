@@ -1,0 +1,155 @@
+ java.lang.IllegalArgumentException: name cannot be null or empty
+[INFO]  at com.google.appengine.api.datastore.KeyFactory.createKey(KeyFactory.java:82)
+[INFO]  at com.google.appengine.api.datastore.KeyFactory.createKey(KeyFactory.java:77)
+[INFO]  at com.googlecode.objectify.Key.<init>(Key.java:97)
+[INFO]  at com.googlecode.objectify.Key.<init>(Key.java:86)
+[INFO]  at com.googlecode.objectify.Key.create(Key.java:34)
+[INFO]  at model.Content.<init>(Content.java:37)
+[INFO]  at servlet.ChatHandle$1.vrun(ChatHandle.java:26)
+[INFO]  at com.googlecode.objectify.VoidWork.run(VoidWork.java:14)
+[INFO]  at com.googlecode.objectify.VoidWork.run(VoidWork.java:11)
+[INFO]  at com.googlecode.objectify.ObjectifyService.run(ObjectifyService.java:81)
+[INFO]  at servlet.ChatHandle.doSomething(ChatHandle.java:22)
+[INFO]  at servlet.ChatHandle.doPost(ChatHandle.java:68)
+[INFO]  at javax.servlet.http.HttpServlet.service(HttpServlet.java:637)
+[INFO]  at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+[INFO]  at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
+[INFO]  at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1166)
+[INFO]  at com.googlecode.objectify.ObjectifyFilter.doFilter(ObjectifyFilter.java:48)
+[INFO]  at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1157)
+
+
+
+function theme(element) {
+    var color;
+    switch (element.id) {
+        
+        case "clg":
+            configure("", "#8BC34A", "https://code.getmdl.io/1.2.1/material.light_green-light_blue.min.css");
+            color='clg';
+            break;
+        case "cg":
+            configure("", "#4CAF50", "https://code.getmdl.io/1.2.1/material.green-amber.min.css");
+            color='cg';
+            break;
+        case "cr":
+            configure("", "#F44336", "https://code.getmdl.io/1.2.1/material.red-blue.min.css");
+            color='cr';
+            break;
+        case "cdo":
+            configure("", "#FF5722", "https://code.getmdl.io/1.2.1/material.deep_orange-light_green.min.css");
+            color='cdo';
+            break;
+        case "cl":
+            configure("", "#CDDC39", "https://code.getmdl.io/1.2.1/material.lime-cyan.min.css");
+            color='cl';
+            break;
+        case "ct":
+            configure("", "#009688", "https://code.getmdl.io/1.2.1/material.teal-amber.min.css");
+            color='ct';
+            break;
+        case "cp":
+            configure("", "#E91E63", "https://code.getmdl.io/1.2.1/material.pink-cyan.min.css");
+            color='cp';
+            break;
+        case "cbr":
+            configure("", "#795548", "https://code.getmdl.io/1.2.1/material.brown-pink.min.css");
+            color='cbr';
+            break;
+        case "cy":
+            configure("", "#FFEB3B", "https://code.getmdl.io/1.2.1/material.yellow-light_blue.min.css");
+            color='cy';
+            break;
+        case "cc":
+            configure("", "#00BCD4", "https://code.getmdl.io/1.2.1/material.cyan-orange.min.css");
+            color='cc';
+            break;
+        case "cpu":
+            configure("", "#9C27B0", "https://code.getmdl.io/1.2.1/material.purple-green.min.css");
+            color='cpu';
+            break;
+        case "cgr":
+            configure("", "#9E9E9E", "https://code.getmdl.io/1.2.1/material.grey-cyan.min.css");
+            color='cgr';
+            break;
+        case "ca":
+            configure("", "#FFC107", "https://code.getmdl.io/1.2.1/material.amber-light_blue.min.css");
+            color='ca';
+            break;
+        case "clb":
+            configure("", "#03A9F4", "https://code.getmdl.io/1.2.1/material.light_blue-cyan.min.css");
+            color='clb';
+            break;
+        case "cdp":
+            configure("", "#673AB7", "https://code.getmdl.io/1.2.1/material.deep_purple-yellow.min.css");
+            color='cdp';
+            break;
+        case "cbart":
+            configure(hd, uv, "https://code.getmdl.io/1.2.1/material.amber-orange.min.css");
+            $('#fox').css('visibility', 'visible');
+            color='cbart';
+            break;
+        case "co":
+            configure("", "#FF9800", "https://code.getmdl.io/1.2.1/material.orange-light_green.min.css");
+            color='co';
+            break;
+        case "cb":
+            configure("", "#2196F3", "https://code.getmdl.io/1.2.1/material.blue-yellow.min.css");
+            color='cb';
+            break;
+        case "ci":
+            configure("", "#3F51B5", "https://code.getmdl.io/1.2.1/material.indigo-green.min.css");
+            color='ci';
+            break;
+        case "cbg":
+            configure("", "#607D8B", "https://code.getmdl.io/1.2.1/material.blue_grey-teal.min.css");
+            color='cbg';
+            break;
+        
+    }
+    alert(color);
+    document.getElementById('textColor').innerHTML= "<input type='hidden' name='temp' value='"+color+"'>";
+    alert(color);
+//    document.cookie = "theme=" + element.id;
+}
+
+
+
+
+
+
+modal-close
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <script>
+            <% System.out.print("below script");%>
+            $(function () {
+        	window.history.replaceState('', '', './${fn:escapeXml(requestScope.roomName)}');        
+	            });
+
+            $(window).bind('beforeunload', function () {
+//                return false;
+            });
+            
+            <% System.out.print("before end the script");%>
+        </script>
+
+
+

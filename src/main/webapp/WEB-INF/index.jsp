@@ -79,7 +79,6 @@
                 document.exitFullscreen();
             });
         </script>
-
         <title>Yacht – Just chat, that's it.</title>
     </head>
     <body>
@@ -102,12 +101,12 @@
                                 <p class="flow-text" id="card-text1">A web chat that relies on speed, security and simplicity.<br>Just chat, that's it.</p>
                             </div>
                             <div class="card-action mdl-card__actions" id="card-border">
-                                <form id="chatroom" name="chatroom" action="FormHandle" method="post" onsubmit="validate();">
+                                <form id="chatroom" name="chatroom" action="/FormHandle" method="post" onsubmit="validate();">
                                     <span id="spc"></span>
                                     <div id="card-form">
                                         <i class="material-icons" id="icon">forum</i>
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input" style="width: 2cm;">
-                                            <input class="mdl-textfield__input" id="room" name="roomName" type="text" minlength="3" maxlength="6" pattern="^[a-zA-Z0-9]{2,6}$" title="Please use only alphanumeric characters (A-Z, a-z, 0-9) 3 to 6 letters for a /room.">
+                                            <input class="mdl-textfield__input" id="room" name="roomName" type="text" minlength="3" maxlength="6" pattern="^[a-zA-Z0-9]{2,6}$" title="Please use only alphanumeric characters (A-Z, a-z, 0-9) 3 to 6 letters for a /room." />
                                             <label class="mdl-textfield__label" for="room">/room</label>
                                             <span class="mdl-textfield__error">Alphanumeric 3 to 6 letters!</span>
                                         </div>
@@ -116,7 +115,7 @@
                                     <div id="card-form">
                                         <i class="material-icons" id="icon">account_circle</i>
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input" style="width: 3.2cm">
-                                            <input class="mdl-textfield__input" id="username" name="username" type="text" minlength="1" pattern="^[a-zA-Z0-9]{1,}$" title="Please use only alphanumeric characters (A-Z, a-z, 0-9) at least 1 letter for a name.">
+                                            <input class="mdl-textfield__input" value="${sessionScope.usname}" id="username" name="username" type="text" minlength="1" pattern="^[a-zA-Z0-9]{1,}$" title="Please use only alphanumeric characters (A-Z, a-z, 0-9) at least 1 letter for a name.">
                                             <label class="mdl-textfield__label" for="username">Name</label>
                                             <span class="mdl-textfield__error">Alphanumeric at least 1 letter!</span>
                                         </div>
@@ -192,10 +191,10 @@
             <div class="modal-content">
                 <h4>Are you a robot?</h4>
                 <p>Please help us to protect robots and spams by verifying yourself.</p>
-                <div class="g-recaptcha" data-callback="launch" data-expired-callback="unlaunch" data-sitekey="6LcSyAcUAAAAAJQHcNS-7mxklAXSOnPxjLEdSfyd" data-theme="dark" form="chatroom" name="g-recaptcha-response"></div>
+                <div class="g-recaptcha" data-callback="launch" data-expired-callback="unlaunch" data-sitekey="6LcSyAcUAAAAAJQHcNS-7mxklAXSOnPxjLEdSfyd" data-theme="dark" name="g-recaptcha-response"></div>
             </div><hr>
             <div class="modal-footer">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored modal-action modal-close btn" id="launch" form="chatroom" type="submit">Chat now</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored modal-close modal-action btn" id="launch" form="chatroom" type="submit">Chat now</button>
             </div>
         </div>
     </body>

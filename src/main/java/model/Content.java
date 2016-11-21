@@ -11,14 +11,15 @@ import java.util.Date;
 public class Content {
 
     @Parent
-    Key<Room> theRoom;
+    public Key<Room> theRoom;
     @Id
     public Long id;
     public String content;
     public String sender;
     public String rmName;
     @Index
-    public Date date;
+    public Date date ;
+    
 
     /**
      * Simple constructor just sets the date
@@ -43,6 +44,56 @@ public class Content {
 
     }
 
+    public void setTheRoom(Key<Room> theRoom) {
+        this.theRoom = theRoom;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    public void setRmName(String rmName) {
+        this.rmName = rmName;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Key<Room> getTheRoom() {
+        return theRoom;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public String getRmName() {
+        return rmName;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    
+
     /**
      * Takes all important fields
      *
@@ -50,4 +101,5 @@ public class Content {
      * @param content
      *
      */
+    
 }
