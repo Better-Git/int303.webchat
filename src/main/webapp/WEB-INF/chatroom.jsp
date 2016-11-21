@@ -189,8 +189,8 @@
         <footer class="page-footer white" style="position:fixed;bottom: 0%; z-index: 20;width: 100%;">
             <form class="shift2" name="send" action="ChatHandle" id="send" method="post">
                 <div class="mdl-textfield mdl-js-textfield chat-message">
-                    <input class="mdl-textfield__input chat-input" style="width: 240%;" id="message" name="message" type="text">
-                    <label class="mdl-textfield__label chat-input" style="width: 240%;" for="message">Type any message...</label>
+                    <input class="mdl-textfield__input chat-input" id="message" name="message" type="text">
+                    <label class="mdl-textfield__label chat-input" for="message">Type any message...</label>
                     <input type="hidden" name="roomName" value="${roomName}">
                     <input type="hidden" name="username" value="${username}">
                     <input type='hidden' name='temp' value='${color}'>

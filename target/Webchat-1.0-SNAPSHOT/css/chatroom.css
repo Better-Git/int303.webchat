@@ -77,7 +77,6 @@ main {
     .shift2 {
         margin-left: 24px;
     }
-
 }
 
 @media (max-width: 993px) {
@@ -88,7 +87,7 @@ main {
 
 @media (min-width: 640px) {
     .chat-message {
-        width: 12.7cm;
+        width: 86%;
     }
     .shift3, .shift4 {
         margin-right: 19px;

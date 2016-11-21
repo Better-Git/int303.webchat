@@ -22,7 +22,7 @@
     </servlet>
     <servlet>
         <servlet-name>QuitHandle</servlet-name>
-        <servlet-class>servlet.QuitHandle</servlet-class>
+        <servlet-class>servlet.LogOut</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>FormHandle</servlet-name>
@@ -34,7 +34,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>QuitHandle</servlet-name>
-        <url-pattern>/QuitHandle</url-pattern>
+        <url-pattern>/LogOut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
